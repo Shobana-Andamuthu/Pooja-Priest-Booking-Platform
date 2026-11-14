@@ -544,15 +544,16 @@ body { overflow-x: clip; }
 .hero { overflow: hidden; isolation: isolate; }
 .hero.has-img { background-image: none; background-color: #f3dcc0; }
 .hero.has-img::before {
-  content: ""; position: absolute; inset: -3%; z-index: -2;
+  content: ""; position: absolute; inset: -3%; z-index: 0;
   background: var(--hero-img) center / cover no-repeat;
   animation: hero-zoom 24s ease-in-out infinite alternate; will-change: transform;
 }
 .hero.has-img::after {
-  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background: var(--hero-wash);
 }
 .hero.has-img .hero-content {
+  position: relative; z-index: 2;
   max-width: 680px; padding: 34px 40px; border-radius: 26px;
   background: var(--hero-panel); border: 1px solid var(--hero-panel-bd); box-shadow: var(--hero-panel-shadow);
   -webkit-backdrop-filter: blur(10px) saturate(1.15); backdrop-filter: blur(10px) saturate(1.15);
@@ -568,14 +569,14 @@ body { overflow-x: clip; }
 /* Login / Create account photo panel: lighter overlay, text gets a soft shadow */
 .auth-visual.has-img { position: relative; overflow: hidden; isolation: isolate; background-image: none; background-color: #7a1f2b; }
 .auth-visual.has-img::before {
-  content: ""; position: absolute; inset: -3%; z-index: -2; background: var(--hero-img) center / cover no-repeat;
+  content: ""; position: absolute; inset: -3%; z-index: 0; background: var(--hero-img) center / cover no-repeat;
   animation: hero-zoom 24s ease-in-out infinite alternate;
 }
 .auth-visual.has-img::after {
-  content: ""; position: absolute; inset: 0; z-index: -1;
+  content: ""; position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(160deg, rgba(122, 31, 43, .50), rgba(48, 12, 16, .64));
 }
-.auth-visual.has-img > * { text-shadow: 0 2px 16px rgba(0, 0, 0, .45); }
+.auth-visual.has-img > * { position: relative; z-index: 2; text-shadow: 0 2px 16px rgba(0, 0, 0, .45); }
 
 /* ---------- Devotee Stories: photo and cards share one (shorter) height ---------- */
 .stories { align-items: stretch; gap: 28px; }
