@@ -348,6 +348,10 @@ table.t th { color: var(--muted); font-size: 12px; text-transform: uppercase; le
 /* Contact */
 .contact-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 24px; align-items: stretch; }
 .contact-side { display: grid; gap: 24px; grid-template-rows: auto 1fr; }
+.contact-form-card > h2 { text-align: center; }
+#contact-form { text-align: center; }
+#contact-form .form-grid { text-align: start; }
+#contact-form > .btn { display: block; margin-inline: auto; }
 .hours > div { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px dashed var(--border); }
 .hours > div:last-child { border-bottom: 0; }
 .map-embed { height: 420px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow); }
