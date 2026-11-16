@@ -40,6 +40,7 @@
   .container { padding-inline: 14px; }
   .brand { font-size: 17px; }
   .mobile-menu .mm-actions { flex-direction: column; }
+  .mobile-menu .mm-actions .btn { flex: 0 0 auto; width: 100%; height: var(--btn-h); min-height: var(--btn-h); }
 }
 @media (max-width: 240px) {
   .brand span.brand-text { display: none; }
@@ -232,4 +233,23 @@
   .cta-band::before, .cta-band::after { width: 260px; height: 260px; }
 }
 @media (max-width: 360px) {
+}
+
+/* ===== Mobile fixes: menu buttons + faster scroll reveals ===== */
+@media (max-width: 1366px) {
+  .mobile-menu .mm-actions .btn { height: var(--btn-h); min-height: var(--btn-h); }
+}
+@media (max-width: 1100px) {
+  /* reveals: short, quick, no long stagger, so content is visible as soon as it scrolls in */
+  .js .reveal, .js .reveal.from-start, .js .reveal.from-end,
+  .js[dir="rtl"] .reveal.from-start, .js[dir="rtl"] .reveal.from-end {
+    transform: translate3d(0, 16px, 0);
+    transition: opacity .4s ease, transform .4s ease;
+    transition-delay: 0s !important;
+  }
+  .js .reveal.zoom { transform: none; }
+  .js .reveal.in { opacity: 1; transform: none; }
+  /* checklist items fade only (no shift), so they can never overlap the button below */
+  .js .checks .reveal, .js .checks .reveal.from-start { transform: none; }
+  .js .img-slot.reveal > img { transform: none; transition: none; }
 }

@@ -87,7 +87,7 @@
     el.classList.add('in');
     var b = el.classList.contains('stat') ? el.querySelector('b') : null;
     if (b) setTimeout(function () { countUp(b); }, wait);
-    setTimeout(function () { finalize(el); }, wait + 1700);   // after the transition: drop the reveal classes
+    setTimeout(function () { finalize(el); }, wait + 1000);   // after the transition: drop the reveal classes
   }
   function observe() {
     if (!('IntersectionObserver' in window)) { $$('.reveal').forEach(show); $$('.zigzag').forEach(function (z) { z.classList.add('in'); }); return; }
@@ -97,7 +97,7 @@
         io.unobserve(en.target);
         if (en.target.classList.contains('zigzag')) en.target.classList.add('in'); else show(en.target);
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    }, { threshold: 0, rootMargin: '0px 0px 80px 0px' });
     $$('.reveal').forEach(function (el) { io.observe(el); });
     $$('.zigzag').forEach(function (el) { io.observe(el); });
     // stat counters start at 0 so the number never flashes at full value
